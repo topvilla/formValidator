@@ -11,3 +11,9 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
     monospace;
 }
+.chekc{
+  border: solid 2px green;
+}
+.error{
+  border: solid 2px red;
+}

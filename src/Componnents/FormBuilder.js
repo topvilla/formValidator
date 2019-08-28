@@ -37,10 +37,7 @@ const formBuilder = (props)=>{
                 }
                 return false;
             });
-            if(contInputValid === lengthValidator){
-                return true;
-            }
-            return false;
+            return (contInputValid === lengthValidator);
         }
     }
     inputsForm = configInputs(props);
@@ -59,19 +56,32 @@ const formBuilder = (props)=>{
             }
             return false;
         });
-        if(contInputsValid === lengthInputs){
-            setForm({
-                valid:true 
-            })
-        }else{
-            setForm({
-                valid:false 
-            })
-        }
-    }
+        setForm({
+            valid: (contInputsValid === lengthInputs) 
+        });
+    }  
     useEffect(()=>{
-        props.subiscribe(form);
-    },[form.valid])
+        const response = buiderFormAndResponse();
+        props.subiscribe(response);
+    },[form.valid]);
+    const buiderFormAndResponse = () =>{
+        const data = buildFormData();
+        return buildResponse(data);
+    }
+    const buildFormData = ()=>{
+        let object = {};
+        inputsForm.forEach((input)=>{
+            object[input.name] = input.value;
+        });
+        return object;
+    }
+    const buildResponse = (data)=>{
+        const response = {
+            valid:form.valid,
+            value:data
+        }
+        return response;
+    }
 
     return(
         <div>

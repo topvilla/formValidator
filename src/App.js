@@ -73,6 +73,18 @@ function App() {
             messageError:"data invalido",
     
           },
+          {
+            label:"Data teste",
+            type:"date",
+            name:"dateInit",
+            value:"2019-08-10",
+            validator:[
+              Validator.require,
+  
+            ],
+            messageError:"data invalido",
+    
+          },
         ]
       } />
       <button type = "submit" onClick = {salvar}>enviar</button>

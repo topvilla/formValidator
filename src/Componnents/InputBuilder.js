@@ -15,10 +15,9 @@ const InputBuilder = (props)=>{
         }
     }
     const checktypeAndConstruct = (input)=>{
-        console.log(input);
         switch (input.type) {
             case 'number':
-                return <div>
+                return <div key = {input.name}>
                     <label>{input.label}</label>
                     <InputNumber name = {input.name} validator = {input.validator} listen = {input.handler}
                     value = {input.value} messageError = {input.messageError} placeholder={input.placeholder}
@@ -26,21 +25,21 @@ const InputBuilder = (props)=>{
                 </div>
 
             case 'text':
-                return <div>
+                return <div key = {input.name} >
                     <label>{input.label}</label>
                     <InputText name = {input.name} validator = {input.validator} listen = {input.handler}
                     value = {input.value} messageError = {input.messageError} placeholder={input.placeholder}
                     />
                 </div>
             case 'date':
-                return <div>
+                return <div key = {input.name} >
                     <label>{input.label}</label>
                     <InputDate name = {input.name} validator = {input.validator} listen = {input.handler}
                     value = {input.value} messageError = {input.messageError} placeholder={input.placeholder}
                     />
                 </div>
             case 'cpf':
-                return <div>
+                return <div key = {input.name}>
                     <label>{input.label}</label>
                     <InputCpf name = {input.name} validator = {input.validator} listen = {input.handler}
                     value = {input.value} messageError = {input.messageError} placeholder={input.placeholder}

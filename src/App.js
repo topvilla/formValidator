@@ -4,10 +4,14 @@ import './App.css';
 import FormBuilder from './Componnents/FormBuilder';
 import * as Validator from './Componnents/Validators';
 function App() {
+
+  const salvar = ()=>{
+    console.log('salvar');
+  }
   return (
     <div className="App">
       <FormBuilder 
-      handlerSubmit = {(event)=>{console.log(event)}}
+      subiscribe = {(data)=>{console.log(data)}}
       inputs = {
         [
           {
@@ -25,7 +29,7 @@ function App() {
             label:"Name completo",
             type:"text",
             name:"name",
-            value:"",
+            value:"EWQE",
             validator:[
               Validator.require,
               Validator.textWithoutAccent
@@ -48,7 +52,7 @@ function App() {
             label:"Comentario",
             type:"text",
             name:"coment",
-            value:"",
+            value:"EWQE",
             validator:[
               Validator.require,
               Validator.textWithoutAccent
@@ -57,9 +61,21 @@ function App() {
             messageError:"comentário invalido",
             placeholder:'informe o commentario'
           },
+          {
+            label:"Data teste",
+            type:"date",
+            name:"date",
+            value:"2019-08-10",
+            validator:[
+              Validator.require,
+  
+            ],
+            messageError:"data invalido",
+    
+          },
         ]
       } />
-      <button type = "submit">enviar</button>
+      <button type = "submit" onClick = {salvar}>enviar</button>
     </div>
   );
 }

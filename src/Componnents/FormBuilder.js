@@ -69,6 +69,9 @@ const formBuilder = (props)=>{
             })
         }
     }
+    useEffect(()=>{
+        props.subiscribe(form);
+    },[form.valid])
 
     return(
         <div>

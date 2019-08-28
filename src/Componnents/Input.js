@@ -80,6 +80,7 @@ export default class Input extends React.Component{
                 onFocus = {this.handlerOnFocus}
                 onBlur = {this.handlerBlur}
                 onKeyDown = {this.handleKeyDown}
+                placeholder = {this.props.placeholder}
                 />
                 <span>{!this.state.isValid?this.props.messageError:""}</span>
         </div>

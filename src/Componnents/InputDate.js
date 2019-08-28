@@ -14,6 +14,8 @@ const  InputDate = (props)=>{
         messageError = {props.messageError}
         value = {props.value}
         name = {props.name}
+        placeholder = {props.placeholder}
+
         />
     )
 }

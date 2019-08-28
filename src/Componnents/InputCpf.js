@@ -18,6 +18,8 @@ const InputCpf = (props)=>{
         value = {props.value}
         name = {props.name}
         mask = {mask.cpf}
+        placeholder = {props.placeholder}
+
     />)
 }
 export default InputCpf;

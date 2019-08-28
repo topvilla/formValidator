@@ -9,6 +9,14 @@ import Select from './Select';
 
 export default function Form(){
 
+
+
+
+
+
+
+
+
         const [id,setId] = useState({value:0,valid:true})
         const [name,setName] = useState({value:0,valid:false})
         const [cpf,setCpf] = useState({value:0,valid:false})
@@ -49,8 +57,8 @@ export default function Form(){
         }
         useEffect(()=>{
             formValidate();
-        },[id,name,cpf,age,birthDate]);
-        const save = ()=>{
+        },[id, name, cpf, age, birthDate]);
+        const save = ()=>{ 
             alert('salvar');
         }
         return (<div>

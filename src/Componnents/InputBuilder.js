@@ -3,6 +3,7 @@ import InputNumber from './InputNumber';
 import InputText from './InputText';
 import InputDate from './InputDate';
 import InputCpf from './InputCpf';
+import Select from './Select';
 
 
 const InputBuilder = (props)=>{
@@ -44,6 +45,21 @@ const InputBuilder = (props)=>{
                     <InputCpf name = {input.name} validator = {input.validator} listen = {input.handler}
                     value = {input.value} messageError = {input.messageError} placeholder={input.placeholder}
                     />
+                </div>
+            case 'select':
+                
+                return <div key = {input.name}>
+                    <label>{input.label}</label>
+                    <Select 
+                        name = {input.name}
+                        mapElement = {input.elementsMap.map((element)=>{
+                            return <option  key = {element.value } 
+                            value = {element.value}>{element.type}</option>
+                        })}
+                        value = {input.value}
+                        listen = {input.handler}
+                    />
+                    
                 </div>
             default:
                 break;

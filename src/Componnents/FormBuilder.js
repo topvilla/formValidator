@@ -4,7 +4,7 @@ import React,{useState,useEffect} from 'react';
 import InputBuilder from './InputBuilder';
 
 
-const formBuilder = (props)=>{
+const FormBuilder = (props)=>{
     
     let inputsForm = [];
     const [form,setForm] = useState({
@@ -27,6 +27,7 @@ const formBuilder = (props)=>{
     }
     
     const preValidator = (input)=>{
+       if(input.type !== 'select'){
         const lengthValidator = input.validator.length;
         let contInputValid = 0;
         if(input.validator !== undefined){
@@ -39,6 +40,8 @@ const formBuilder = (props)=>{
             });
             return (contInputValid === lengthValidator);
         }
+       }
+       return false;
     }
     inputsForm = configInputs(props);
     useEffect(()=>{
@@ -61,9 +64,12 @@ const formBuilder = (props)=>{
         });
     }  
     useEffect(()=>{
+    
         const response = buiderFormAndResponse();
         props.subiscribe(response);
-    },[form.valid]);
+    },[form.valid,...inputsForm.map((input)=>{
+        return input.state;
+    })]);
     const buiderFormAndResponse = () =>{
         const data = buildFormData();
         return buildResponse(data);
@@ -71,7 +77,7 @@ const formBuilder = (props)=>{
     const buildFormData = ()=>{
         let object = {};
         inputsForm.forEach((input)=>{
-            object[input.name] = input.value;
+            object[input.name] = input.state.value;
         });
         return object;
     }
@@ -99,4 +105,4 @@ const formBuilder = (props)=>{
         </div>
     );
 }
-export default formBuilder;
+export default FormBuilder;

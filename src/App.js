@@ -3,6 +3,7 @@ import './App.css';
 // import Form from './Componnents/Form';
 import FormBuilder from './Componnents/FormBuilder';
 import * as Validator from './Componnents/Validators';
+import PhysicsForm from './Forms/PhysicsForm';
 function App() {
 
   const salvar = ()=>{
@@ -10,8 +11,11 @@ function App() {
   }
   return (
     <div className="App">
-      <FormBuilder 
-      subiscribe = {(data)=>{console.log(data)}}
+      {/* <FormBuilder 
+
+      subiscribe = {(data)=>{
+        console.log(data)
+      }}
       inputs = {
         [
           {
@@ -86,7 +90,8 @@ function App() {
     
           },
         ]
-      } />
+      } /> */}
+      <PhysicsForm />
       <button type = "submit" onClick = {salvar}>enviar</button>
     </div>
   );
